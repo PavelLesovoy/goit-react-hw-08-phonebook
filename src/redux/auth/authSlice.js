@@ -19,7 +19,6 @@ const authSlice = createSlice({
   name: 'auth',
   initialState: authInitialState,
   extraReducers: {
-    //registration operations
     [signUp.pending](state) {
       state.isRefreshing = true;
     },
@@ -36,7 +35,6 @@ const authSlice = createSlice({
       state.error = action.payload;
     },
 
-    //login operations
     [authorization.pending](state) {
       state.isRefreshing = true;
     },
@@ -53,7 +51,6 @@ const authSlice = createSlice({
       state.error = action.payload;
     },
 
-    //getCurrentUser operations
     [getCurrentUser.pending](state) {
       state.isRefreshing = true;
     },
@@ -65,19 +62,18 @@ const authSlice = createSlice({
       state.error = null;
     },
     [getCurrentUser.rejected](state, action) {
-      state.name = authInitialState.name
+      state.name = authInitialState.name;
       state.email = authInitialState.email;
       state.token = authInitialState.token;
       state.isLoggedIn = authInitialState.isLoggedIn;
       state.isRefreshing = authInitialState.isRefreshing;
     },
 
-    //logout operations
     [logout.pending](state) {
       state.isRefreshing = true;
     },
     [logout.fulfilled](state) {
-      state.name = authInitialState.name
+      state.name = authInitialState.name;
       state.email = authInitialState.email;
       state.token = authInitialState.token;
       state.isLoggedIn = authInitialState.isLoggedIn;
