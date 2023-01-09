@@ -12,7 +12,8 @@ const token = {
   },
 };
 
-const setToken = token => axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+const setToken = token =>
+  (axios.defaults.headers.common.Authorization = `Bearer ${token}`);
 
 export const signUp = createAsyncThunk(
   'auth/signup',
@@ -46,7 +47,7 @@ export const getCurrentUser = createAsyncThunk(
     try {
       const state = thunkAPI.getState();
       const token = state.auth.token;
-      if (!token) return thunkAPI.rejectWithValue('First visit - lack of token in LS');
+      if (!token) return thunkAPI.rejectWithValue('Unable to fetch user');
       setToken(token);
       const response = await axios.get('/users/current');
       return response.data;
