@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 
 import MenuIcon from '@mui/icons-material/Menu';
-import AdbIcon from '@mui/icons-material/Adb';
+import AodIcon from '@mui/icons-material/Aod';
 import UserMenu from './UserMenu';
 import { useSelector } from 'react-redux';
 import authSelectors from 'redux/auth';
@@ -40,12 +40,12 @@ function SharedLayout() {
         <AppBar position="static">
           <Container maxWidth="xl">
             <Toolbar disableGutters>
-              <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+              <AodIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
               <Typography
                 variant="h6"
                 noWrap
                 component={Link}
-                to='/'
+                to="/"
                 sx={{
                   mr: 2,
                   display: { xs: 'none', md: 'flex' },
@@ -102,7 +102,7 @@ function SharedLayout() {
                   ))}
                 </Menu>
               </Box>
-              <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+              <AodIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
               <Typography
                 variant="h5"
                 noWrap
@@ -136,7 +136,7 @@ function SharedLayout() {
               </Box>
 
               <Box sx={{ flexGrow: 0 }}>
-              {isLoggedIn ? (
+                {isLoggedIn ? (
                   <UserMenu />
                 ) : (
                   <Button
@@ -148,7 +148,6 @@ function SharedLayout() {
                     Login
                   </Button>
                 )}
-
               </Box>
             </Toolbar>
           </Container>
